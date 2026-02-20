@@ -1,9 +1,6 @@
 /**
  * Cybersecurity Event — Authentication Module
- * Hardcoded credential validation for hackathon demo.
  */
-
-const VALID_TEAM_ID = 'TEAM_ALPHA';
 
 /**
  * Authenticate a team registration.
@@ -12,8 +9,8 @@ const VALID_TEAM_ID = 'TEAM_ALPHA';
  * @returns {{ success: boolean, message: string }}
  */
 export function authenticate(teamId, operatives) {
-  // Check team identifier (case-insensitive)
-  if (teamId.trim().toUpperCase() !== VALID_TEAM_ID) {
+  // Team identifier must not be empty
+  if (!teamId || teamId.trim().length === 0) {
     return {
       success: false,
       message: 'ACCESS DENIED',
